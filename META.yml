@@ -1,0 +1,59 @@
+---
+name: App-Booklist
+version: v0.1
+author:
+  - 'John SJ Anderson <genehack@genehack.org>'
+abstract: 'Track books you want to read, are reading, and have read'
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  App::Cmd: 0
+  App::Cmd::Command: 0
+  DBIx::Class: 0
+  DBIx::Class::Schema: 0
+  DateTime: 0
+  FindBin: 0
+  Test::Exception: 0
+  Test::File: 0
+  Test::More: 0
+  Test::Trap: 0
+  version: 0
+provides:
+  App::Booklist:
+    file: lib/App/Booklist.pm
+    version: v0.1
+  App::Booklist::Command::add:
+    file: lib/App/Booklist/Command/add.pm
+  App::Booklist::Command::authors:
+    file: lib/App/Booklist/Command/authors.pm
+  App::Booklist::Command::finish:
+    file: lib/App/Booklist/Command/finish.pm
+  App::Booklist::Command::import:
+    file: lib/App/Booklist/Command/import.pm
+  App::Booklist::Command::list:
+    file: lib/App/Booklist/Command/list.pm
+  App::Booklist::Command::make_database:
+    file: lib/App/Booklist/Command/make_database.pm
+  App::Booklist::Command::start:
+    file: lib/App/Booklist/Command/start.pm
+  App::Booklist::Command::stats:
+    file: lib/App/Booklist/Command/stats.pm
+  App::Booklist::DB:
+    file: lib/App/Booklist/DB.pm
+  App::Booklist::DB::Author:
+    file: lib/App/Booklist/DB/Author.pm
+  App::Booklist::DB::AuthorBook:
+    file: lib/App/Booklist/DB/AuthorBook.pm
+  App::Booklist::DB::Book:
+    file: lib/App/Booklist/DB/Book.pm
+  App::Booklist::DB::BookTag:
+    file: lib/App/Booklist/DB/BookTag.pm
+  App::Booklist::DB::Reading:
+    file: lib/App/Booklist/DB/Reading.pm
+  App::Booklist::DB::Tag:
+    file: lib/App/Booklist/DB/Tag.pm
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
