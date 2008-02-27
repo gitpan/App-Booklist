@@ -1,12 +1,12 @@
 package App::Booklist;
 
-# $Id: Booklist.pm 90 2008-02-02 18:28:03Z genehack $
+# $Id: Booklist.pm 106 2008-02-27 10:17:00Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/lib/App/Booklist.pm $
 
 use warnings;
 use strict;
 
-use version; our $VERSION = qv('0.1');
+use version; our $VERSION = qv('0.2');
 
 use DateTime;
 use FindBin;

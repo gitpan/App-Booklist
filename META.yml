@@ -1,6 +1,6 @@
 ---
 name: App-Booklist
-version: v0.1
+version: v0.2
 author:
   - 'John SJ Anderson <genehack@genehack.org>'
 abstract: 'Track books you want to read, are reading, and have read'
@@ -13,6 +13,7 @@ requires:
   DBIx::Class: 0
   DBIx::Class::Schema: 0
   DateTime: 0
+  File::SearchPath: 0
   FindBin: 0
   Test::Exception: 0
   Test::File: 0
@@ -22,7 +23,7 @@ requires:
 provides:
   App::Booklist:
     file: lib/App/Booklist.pm
-    version: v0.1
+    version: v0.2
   App::Booklist::Command::add:
     file: lib/App/Booklist/Command/add.pm
   App::Booklist::Command::authors:

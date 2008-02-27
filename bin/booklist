@@ -1,6 +1,6 @@
 #! /usr/bin/perl 
 
-# $Id: booklist 91 2008-02-02 18:28:18Z genehack $
+# $Id: booklist 106 2008-02-27 10:17:00Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/bin/booklist $
 
 use warnings;
@@ -21,7 +21,7 @@ booklist - Manage your reading list.
 
 =head1 VERSION
 
-This document describes booklist version 0.1
+This document describes booklist version 0.2
 
 =head1 SYNOPSIS
 

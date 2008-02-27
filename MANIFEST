@@ -1,5 +1,6 @@
 bin/booklist
 Build.PL
+Changes
 lib/App/Booklist.pm
 lib/App/Booklist/Command/add.pm
 lib/App/Booklist/Command/authors.pm
