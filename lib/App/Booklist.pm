@@ -1,12 +1,12 @@
 package App::Booklist;
 
-# $Id: Booklist.pm 106 2008-02-27 10:17:00Z genehack $
+# $Id: Booklist.pm 112 2008-03-08 04:01:10Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/lib/App/Booklist.pm $
 
 use warnings;
 use strict;
 
-use version; our $VERSION = qv('0.2');
+use version; our $VERSION = version->new("0.3_01");
 
 use DateTime;
 use FindBin;
@@ -70,13 +70,15 @@ sub add_book {
 
 my $db;
 sub db_handle {
-  my( $class ) = ( @_ );
+  my( $class , %params ) = ( @_ );
   
   return $db if $db;
 
   my $DB_FILE = $class->db_location;
-  die "Database file '$DB_FILE' doesn't exist -- maybe run 'make_database' command?"
-    unless -e $DB_FILE;
+  unless ( $params{missing_ok} ) {
+    die "Database file '$DB_FILE' doesn't exist -- maybe run 'make_database' command?"
+      unless -e $DB_FILE;
+  }
   
   $db = App::Booklist::DB->connect(
     "dbi:SQLite:$DB_FILE",

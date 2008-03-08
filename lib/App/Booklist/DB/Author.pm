@@ -1,6 +1,6 @@
 package App::Booklist::DB::Author;
 
-# $Id: Author.pm 88 2008-02-02 18:24:07Z genehack $
+# $Id: Author.pm 108 2008-03-08 03:47:41Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/lib/App/Booklist/DB/Author.pm $
 
 use warnings;
@@ -12,7 +12,10 @@ __PACKAGE__->load_components( qw/ PK::Auto Core / );
 
 __PACKAGE__->table( 'authors' );
 
-__PACKAGE__->add_columns( qw/ id author / );
+__PACKAGE__->add_columns(
+  id     => { data_type => 'INTEGER' , is_auto_increment => 1 } ,
+  author => { data_type => 'TEXT' , is_nullable => 1 } ,
+);
 
 __PACKAGE__->set_primary_key( 'id' );
 

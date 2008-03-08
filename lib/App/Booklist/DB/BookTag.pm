@@ -1,6 +1,6 @@
 package App::Booklist::DB::BookTag;
 
-# $Id: BookTag.pm 88 2008-02-02 18:24:07Z genehack $
+# $Id: BookTag.pm 108 2008-03-08 03:47:41Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/lib/App/Booklist/DB/BookTag.pm $
 
 use warnings;
@@ -12,7 +12,10 @@ __PACKAGE__->load_components( qw/ PK::Auto Core / );
 
 __PACKAGE__->table( 'books_tags' );
 
-__PACKAGE__->add_columns( qw/ book tag / );
+__PACKAGE__->add_columns(
+  book => { data_type => 'INTEGER' } ,
+  tag  => { data_type => 'INTEGER' } ,
+);
 
 __PACKAGE__->set_primary_key( qw/ book tag / );
 

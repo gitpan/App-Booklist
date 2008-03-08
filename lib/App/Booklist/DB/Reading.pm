@@ -1,6 +1,6 @@
 package App::Booklist::DB::Reading;
 
-# $Id: Reading.pm 88 2008-02-02 18:24:07Z genehack $
+# $Id: Reading.pm 108 2008-03-08 03:47:41Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/lib/App/Booklist/DB/Reading.pm $
 
 use warnings;
@@ -12,7 +12,13 @@ __PACKAGE__->load_components( qw/ PK::Auto Core / );
 
 __PACKAGE__->table( 'readings' );
 
-__PACKAGE__->add_columns( qw/ id book startdate finishdate rating / );
+__PACKAGE__->add_columns(
+  id         => { data_type => 'INTEGER' , is_auto_increment => 1 } ,
+  book       => { data_type => 'INTEGER' , is_nullable => 1 } ,
+  startdate  => { data_type => 'INTEGER' , is_nullable => 1 } ,
+  finishdate => { data_type => 'INTEGER' , is_nullable => 1 } ,
+  rating     => { data_type => 'INTEGER' , is_nullable => 1 } ,
+);
 
 __PACKAGE__->set_primary_key( 'id' );
 

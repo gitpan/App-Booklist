@@ -3,7 +3,7 @@ use warnings;
 
 use Module::Build;
 
-# $Id: Build.PL 105 2008-02-27 10:16:46Z genehack $ 
+# $Id: Build.PL 107 2008-03-07 12:05:11Z genehack $ 
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/Build.PL $
 
 my $builder = Module::Build->new(
@@ -19,6 +19,7 @@ my $builder = Module::Build->new(
       'DBIx::Class::Schema' => 0 ,
       'File::SearchPath'    => 0 ,
       'FindBin'             => 0 ,
+      'SQL::Translator'     => 0 , 
       'Test::Exception'     => 0 ,
       'Test::File'          => 0 ,
       'Test::More'          => 0 ,

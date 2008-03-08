@@ -1,6 +1,6 @@
 package App::Booklist::Command::make_database;
 
-# $Id: make_database.pm 89 2008-02-02 18:27:40Z genehack $
+# $Id: make_database.pm 109 2008-03-08 03:48:22Z genehack $
 # $URL: svn+ssh://genehack.net/var/lib/svn/booklist/trunk/lib/App/Booklist/Command/make_database.pm $
 
 use warnings;
@@ -49,23 +49,9 @@ sub run {
       exit(1);
     }
   }
-  
-  my $sqlite = searchpath( 'sqlite3' , $ENV{PATH} );
-  unless ( $sqlite ) {
-    print STDERR q|Can't find 'sqlite3' in your $PATH|,"\n";
-    exit(1);
-  }
 
-    
-  open( my $SQLITE , '|-' , "$sqlite $db_file" );
-  while ( <DATA> ) {
-    next if /^\s*$/;
-    last if /^__END__/;
-    
-    print $SQLITE $_;
-  }
-  close( $SQLITE );
-  close( DATA );
+  my $db = App::Booklist->db_handle( missing_ok => 1 );
+  $db->deploy( { add_drop_table => 0 } );
   
   print "Created database at $db_file\n";
   
@@ -74,43 +60,6 @@ sub run {
 
 1; # Magic true value required at end of module
 
-__DATA__
-CREATE TABLE authors (
-  id       INTEGER PRIMARY KEY,
-  author   TEXT  
-);
-
-CREATE TABLE books (
-  id       INTEGER PRIMARY KEY,
-  added    INTEGER ,
-  pages    INTEGER ,
-  title    TEXT   
-);
-
-CREATE TABLE authors_books (
-  author   INTEGER,
-  book     INTEGER,
-  PRIMARY KEY (author,book)
-);
-
-CREATE TABLE tags (
-  id       INTEGER PRIMARY KEY,
-  tag      TEXT
-);
-
-CREATE TABLE books_tags (
-  book     INTEGER,
-  tag      INTEGER,
-  PRIMARY KEY (book,tag)
-);
-
-CREATE TABLE readings (
-  id           INTEGER PRIMARY KEY,
-  book         INTEGER,
-  startdate    INTEGER,
-  finishdate   INTEGER,
-  rating       INTEGER
-);
 __END__
 
 =head1 NAME
